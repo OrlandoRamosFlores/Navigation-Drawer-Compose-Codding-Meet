@@ -15,11 +15,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun NotificationScreen(
-    innerPadding: PaddingValues
+    modifier: Modifier
 ) {
     Column(
-        modifier = Modifier
-            .padding(innerPadding)
+        modifier = modifier
             .fillMaxSize()
             .background(Color.Yellow),
         verticalArrangement = Arrangement.Center,

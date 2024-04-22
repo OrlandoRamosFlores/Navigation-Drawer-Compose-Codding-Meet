@@ -15,11 +15,10 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun HomeScreen(
-    innerPadding: PaddingValues
+    modifier: Modifier
 ) {
     Column(
-        modifier = Modifier
-            .padding(innerPadding)
+        modifier = modifier
             .fillMaxSize()
             .background(Color.White),
         verticalArrangement = Arrangement.Center,

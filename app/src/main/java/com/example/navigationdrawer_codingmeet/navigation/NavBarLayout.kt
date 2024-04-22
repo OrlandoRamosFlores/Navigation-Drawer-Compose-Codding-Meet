@@ -10,16 +10,18 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationDrawerItem
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.navigationdrawer_codingmeet.R
 
 @Composable
-fun NavBarHeader() {
+fun NavigationDrawerHeader() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -39,12 +41,12 @@ fun NavBarHeader() {
 }
 
 @Composable
-fun NavBarBody(
-    items: List<NavigationItem>,
+fun NavigationDrawerBody(
+    items: List<DrawerNavigationDestination>,
     currentRoute: String?,
-    onClick: (NavigationItem) -> Unit
+    onClick: (DrawerNavigationDestination) -> Unit
 ) {
-    items.forEachIndexed { index, item ->
+    items.forEach { item ->
         NavigationDrawerItem(
             label = { Text(text = item.title) },
             selected = currentRoute == item.route,
@@ -67,4 +69,20 @@ fun NavBarBody(
             )
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun NavigationDrawerHeaderPreview() {
+    NavigationDrawerHeader()
+}
+
+@Preview(showBackground = true)
+@Composable
+private fun NavigationDrawerBodyPreview() {
+        NavigationDrawerBody(
+            currentRoute = drawerNavigationDestinations[1].route,
+            items = drawerNavigationDestinations
+        ) {
+        }
 }
